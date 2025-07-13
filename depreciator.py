@@ -1,7 +1,7 @@
 def getDepBase(prompt):
     while True:
         try:
-            dep_base = float(input(prompt))
+            dep_base = float(input(prompt).strip())
             if dep_base > 0:
                 return dep_base
             else:
@@ -12,7 +12,7 @@ def getDepBase(prompt):
 def getSalvageValue(prompt):
     while True:
         try:
-            salvage_value = float(input(prompt))
+            salvage_value = float(input(prompt).strip())
             if salvage_value >= 0:
                 return salvage_value
             else:
@@ -23,7 +23,7 @@ def getSalvageValue(prompt):
 def getUsefulLife(prompt):
     while True:
         try:
-            useful_life = int(input(prompt))
+            useful_life = int(input(prompt).strip())
             if useful_life > 0:
                 return useful_life
             else:
@@ -34,7 +34,7 @@ def getUsefulLife(prompt):
 def getMonth(prompt):
     while True:
         try:
-            month = int(input(prompt))
+            month = int(input(prompt).strip())
             if month >= 1 and month <= 12:
                 return month
             else:
@@ -45,7 +45,7 @@ def getMonth(prompt):
 def getFactor(prompt):
     while True:
         try:
-            factor = float(input(prompt))
+            factor = float(input(prompt).strip())
             if factor > 1:
                 return factor
             else:
@@ -55,11 +55,12 @@ def getFactor(prompt):
 
 def askContinue(prompt):
     while True:
-        selector = input(prompt)
+        selector = input(prompt).strip()
         if selector.upper() == "Y":
             break
         elif selector.upper() == "N":
             running = False
+            sys.exit()
         else:
             print("Please enter Y or N.")
 
@@ -67,7 +68,7 @@ def askContinue(prompt):
 
 running = True
 while running == True:
-    keycode = input("Welcome to the Depreciator!\nEnter 1 for straight line\n2 for declining balance\n3 for sum of the years' digits ")
+    keycode = input("Welcome to the Depreciator!\nEnter 1 for straight line\n2 for declining balance\n3 for sum of the years' digits ").strip()
     if keycode == "1":
         dep_base = getDepBase("Type in your asset's depreciation base. Remember to subtract the salvage value! ")
         salvage_value = getSalvageValue("Type in your asset's salvage value. ")
